@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+
+<div class="create">
+ <% if(typeof(cliente) != 'undefined'){ %>
+    <div class="form-create" style="width:500px; margin: 2rem auto; padding:2rem; border:2px solid #ccc">
+        <h2 class="text-center ">Actualizar Cliente</h2>
+        <form action="/update/<%= cliente.id %>" method="post">
+            <div class="form-group">
+                <input type="text" value="<%= cliente.nombre %>" name="nombre" id="nombre" placeholder="Nombre" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="text" value="<%= cliente.direccion %>" name="direccion" id="direccion" placeholder="Direccion" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="text" value="<%= cliente.telefono %>" name="telefono" id="phone" placeholder="Telefono" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" style="width: 100%;">
+            </div>
+        </form>
+    </div>
+ <% } %>
+</div>
+
+<%- include('partials/footer') %>

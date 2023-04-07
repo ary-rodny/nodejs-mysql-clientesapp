@@ -1,0 +1,58 @@
+
+
+
+               
+<%- include('partials/header') %>
+               
+<div class=" rowindex">
+    <div class=" customer-list">
+        <table class="table table-bordered table-striped ">
+            <thead class="">
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>DIRECCION</th>
+                <th>TELEFONO</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <% if(typeof(clientes) != 'undefined'){ clientes.forEach((cliente) => { %>
+                    <tr>
+                        <td><%= cliente.id %></td>
+                        <td><%= cliente.nombre %></td>
+                        <td><%= cliente.direccion %></td>
+                        <td><%= cliente.telefono %></td>
+                        <td colspan="2" style="display: flex; justify-content: space-around; font-size: 1.2rem;">
+                            <a href="/edit/<%= cliente.id %>" style="color: rgb(230, 107, 7);" class="">Edit</a>
+                            <a href="/delete/<%= cliente.id %>" class="text-danger ">Delete</a>
+                        </td>
+                    </tr>
+                <% }) } %>
+            </tbody>
+        </table>
+    </div>
+
+    
+        <div class="form-create">
+            <h2 class="text-center ">Nuevo Cliente</h2>
+            <form action="/add" method="post">
+                <div class="form-group">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control">
+                </div>
+    
+                <div class="form-group">
+                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" class="form-control">
+                </div>
+    
+                <div class="form-group">
+                    <input type="text" name="telefono" id="phone" placeholder="Telefono" class="form-control">
+                </div>
+    
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" style="width: 100%;">
+                </div>
+            </form>
+        </div>
+    
+</div>
+
+ <%- include('partials/footer') %>
